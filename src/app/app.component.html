@@ -1,0 +1,438 @@
+<body>
+     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+     
+     <div class="container-fluid mycontainer">
+        <p><b>Search by</b></p>
+        
+         <div class="row">
+            <div class="col-md-2">
+              <label>AWB Number</label>
+              <div class="form-group firstinput">
+                <input type="text" class="form-control value1a" formControlName="awba" placeholder="xxx"> 
+                <input type="text" class="form-control" formControlName="awbb" placeholder="xxxxxxxx">
+              </div>
+              
+              <span class="text-danger"
+              *ngIf="((loginFormControl.awba.touched || submitted) && (loginFormControl.awba.errors?.minlength || loginFormControl.awbb.errors?.minlength))">
+              Invalid AWB No (min 3,8 respectively)
+              </span>  
+              <span class="text-danger"
+              *ngIf="((loginFormControl.awba.touched || submitted) && (loginFormControl.awba.errors?.maxlength || loginFormControl.awbb.errors?.maxlength))">
+              Invalid AWB No (max 3,8 respectively)
+              </span> 
+              <span class="text-danger"
+              *ngIf="((loginFormControl.awba.touched || submitted) && loginFormControl.awba.errors?.required || (loginFormControl.awbb.touched || submitted) && loginFormControl.awbb.errors?.required)">
+              AWB No can't be empty
+              </span> 
+
+            </div>
+            <div class="col-md-2">
+              <label>Flight Number</label>
+              <div class="form-group secondinput">
+                <input type="text" class="form-control seconda" formControlName="fna" placeholder="3D">
+                <h4>-</h4>
+                <input type="text" class="form-control" formControlName="fnb" placeholder="3333">
+                <h4>-</h4>
+                <input type="text" class="form-control secondc" formControlName="fnc" placeholder="D">
+              </div>
+
+
+              <span class="text-danger"
+              *ngIf="((loginFormControl.fna.touched || submitted) && (loginFormControl.fna.errors?.minlength || loginFormControl.fnb.errors?.minlength || loginFormControl.fnc.errors?.minlength))">
+              Invalid Flight No (min 2,4,1 respectively)
+              </span>  
+              <span class="text-danger"
+              *ngIf="((loginFormControl.fna.touched || submitted) && (loginFormControl.fna.errors?.maxlength || loginFormControl.fnb.errors?.maxlength || loginFormControl.fnc.errors?.maxlength))">
+              Invalid Flight No (max 2,4,1 respectively)
+              </span> 
+              <span class="text-danger"
+              *ngIf="((loginFormControl.fna.touched || submitted) && loginFormControl.fna.errors?.required || (loginFormControl.fnb.touched || submitted) && loginFormControl.fnb.errors?.required || (loginFormControl.fnc.touched || submitted) && loginFormControl.fnc.errors?.required)">
+              Flight No can't be empty
+              </span> 
+              <span class="text-danger"
+              *ngIf="((loginFormControl.fna.touched || loginFormControl.fnb.touched || loginFormControl.fnc.touched || submitted) && (loginFormControl.fna.errors?.pattern || loginFormControl.fnb.errors?.pattern || loginFormControl.fnc.errors?.pattern))">
+              Wrong Format
+              </span>
+              
+              
+               
+            </div>
+            <div class="col-md-2">
+                <!-- <label>Flight Date</label>
+                <input type="date" class="form-control" placeholder="DD Month,YYYY">  -->
+                
+                <label>Flight Date</label>
+                <div class="form-input">
+                    <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                    <input type="date" class="form-control" formControlName="date" placeholder="">
+                      
+                  </div>
+                  <span class="text-danger"
+                        *ngIf="(loginFormControl.date.touched || submitted) && loginFormControl.date.errors?.required">
+                          Flight Date is required
+                      </span>
+
+            </div>
+                     
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Shipper</label>
+                <input type="text" id="shipper" class="form-control" formControlName="shipper" [ngClass]="{'form-submitted': formSubmitted}" placeholder="Enter Shipper">
+                <span class="text-danger"
+                    *ngIf="(loginFormControl.shipper.touched || submitted) && loginFormControl.shipper.errors?.required">
+                    Shipper is required
+                </span>
+                
+              </div>
+            </div>
+            <div class="col-md-3">
+                <!-- <label>Forwarder</label>
+                <input type="text" class="form-control" formControlName="forwarder" placeholder="Enter Forwarder"> -->
+                <div class="form-group">
+                  <label>Forwarder</label>
+                  <input type="text" id="forwarder" class="form-control" formControlName="forwarder" [ngClass]="{'form-submitted': formSubmitted}" placeholder="Enter Forwarder">
+                  <span class="text-danger"
+                      *ngIf="(loginFormControl.forwarder.touched || submitted) && loginFormControl.forwarder.errors?.required">
+                      Forwarder is required
+                  </span>
+                </div>
+            </div>
+         </div>
+         
+         <!-- second row starts -->
+          <!-- <div class="row">
+            <div class="col-md-2">
+                <label>Origin</label>
+                <input type="text" class="form-control" placeholder="Enter Airport" list="browsers5">
+                <datalist id="browsers5">
+                    <option value="Mumbai">
+                    <option value="Hyderabad">
+                    <option value="Delhi">
+                    <option value="Chennai">
+                    <option value="Agra">
+                  </datalist>
+            </div>
+            <div class="col-md-2">
+                <label>Destination</label>
+                <input type="text" class="form-control" placeholder="Enter Airport" list="browsers4">
+                <datalist id="browsers4">
+                    <option value="Mumbai">
+                    <option value="Hyderabad">
+                    <option value="Delhi">
+                    <option value="Chennai">
+                    <option value="Agra">
+                  </datalist>           
+            </div>
+            <div class="col-md-2">
+                <label>Transit</label>
+                <input type="text" class="form-control" placeholder="Enter Airport" list="browsers3">
+                <datalist id="browsers3">
+                    <option value="Mumbai">
+                    <option value="Hyderabad">
+                    <option value="Delhi">
+                    <option value="Chennai">
+                    <option value="Agra">
+                  </datalist>            
+            </div>
+                     
+            <div class="col-md-2">
+                <label>POS</label>
+                <input type="text" class="form-control" placeholder="Enter Airport" list="browsers2" >
+                <datalist id="browsers2">
+                    <option value="Mumbai">
+                    <option value="Hyderabad">
+                    <option value="Delhi">
+                    <option value="Chennai">
+                    <option value="Agra">
+                  </datalist>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md-10">
+                        <label>Product</label>
+                        
+
+                          <div class="form-input-shc">
+                            
+                            <input type="text" class="form-control"  placeholder="Select">
+                            
+                            <span class="iconshc"><i class="btn btn-outline-secondary form-control fa fa-search"  (click)="open(mymodal)" aria-hidden="true"></i></span>
+                          </div>
+                    </div>
+                    <div class="col-md-2">
+                        
+                        
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md-10">
+                        <label>SHC</label>
+                        
+                        
+                        <div class="form-input-shc">
+                            
+                            <input type="text" class="form-control"  placeholder="Select">
+                            
+                            <span class="iconshc"><i class="btn btn-outline-secondary form-control fa fa-search"  (click)="open(mymodal)" aria-hidden="true"></i></span>
+                          </div>
+                    </div>
+                    <div class="col-md-2 icon">
+                       
+                        
+                    </div>
+                </div>
+
+            </div>
+         </div>  -->
+         <!-- second row ends -->
+     
+    <div class="row">
+        <div class="col-md-8">
+            
+        </div>
+        <div class="col-md-4 bottom">
+            <div class="row">
+               <div class="col-md-6 arrow">
+                 <!-- second modal -->
+                 <div class="advsearch" (click)="openXl(mymodalsecondrow)">
+                   
+                  <p>Hide Advance Search</p>
+                 </div>
+                   
+                <span class="iconarrow" (click)="showAdvsaerch.advsearch = !showAdvsaerch.advsearch"><i class="fas fa-angle-down " aria-hidden="true"></i></span>
+                
+                </div>
+                <div class="col-md-2">
+                    <input class="btn btn-sm resetbtn" value="Reset" type="submit"/>
+                </div>
+                <div class="col-md-1">
+                </div>
+
+                <div class="col-md-2">
+                    <input type="submit" value="Submit" class="btn btn-sm submit submitbtn"  />
+                   
+                </div>
+                <div class="col-md-1">
+                    
+                </div>
+            </div>
+            <!-- adv search row -->
+            <div class="row">
+              <div *ngIf="showAdvsaerch.advsearch">adv search data.</div>
+          </div>   
+        </div>
+    </div>
+    
+</div>
+</form>
+
+{{printValue.awba}}
+
+<div *ngIf=formSubmitted style="text-align: center;">
+  <table class="mytablee" style="width: 100%;">
+    <tr>
+      <th colspan="8">Form Data</th>
+    </tr>
+    <tr>
+      <th colspan="2">AWB Number</th>
+      <th colspan="3">Flight Number</th>
+      <th>Flight Date</th>
+      <th>Shipper</th>
+      <th>Forwarder</th>
+      
+      
+    </tr>
+
+    <tr>
+      <td>{{printValue.awba}}</td>
+      <td>{{printValue.awbb}}</td>
+      <td>{{printValue.fna}}</td>
+      <td>{{printValue.fnb}}</td>
+      <td>{{printValue.fnc}}</td>
+      <td>{{printValue.date}}</td>
+      <td>{{printValue.shipper}}</td>
+      <td>{{printValue.forwarder}}</td>
+      
+    
+    </tr>
+  </table>
+  </div>
+
+ </body>
+ -----
+ 
+ <div class="container-fluid modal">
+ <ng-template #mymodal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title"><b>Product Code</b></h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    
+    
+    <div class="form-input-modal">
+        <span class="icon"><i class="fa fa-search modalicon" aria-hidden="true"></i></span>
+        <input type="text" id="myInput" onkeyup="myFunction()" name="email" class="form-control" placeholder="Type to search">
+        
+        
+        
+           
+       
+        
+        
+    </div>
+
+    <!-- <div class="modal-body">
+        Hiiii
+    </div> -->
+    
+    <div class="row tablerow">
+        <table id="myTable">
+            <tr class="header">
+              <th style="width:60%;">Code</th>
+              <th style="width:40%;">Description</th>
+            </tr>
+            <tr>
+              <td>PET</td>
+              <td>Pet Carett</td>
+            </tr>
+            <tr>
+              <td>GCR</td>
+              <td>Genral Cargo</td>
+            </tr>
+            <tr>
+              <td>SVA</td>
+              <td>Small Package Service</td>
+            </tr>
+            <tr>
+              <td>SSA</td>
+              <td>Priority</td>
+            </tr>
+            <tr>
+              <td>MAIL</td>
+              <td>MAIL</td>
+            </tr>
+           
+          </table>
+        </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    </div>
+  </ng-template>
+  </div>
+  
+
+  <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Open My Modal</button> -->
+
+  <!-- searching second row which opens on clicking adv search -->
+  <ng-template #mymodalsecondrow let-modal>
+    <div class="container-fluid" mymodalsecondrow>
+      <div class="modal-header">
+        <h4 class="modalsecond-title" id="modal-basic-title"><b>Advance Search</b></h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+            <label>Origin</label>
+            <input type="text" class="form-control" placeholder="Enter Airport" list="browsers5">
+            <datalist id="browsers5">
+                <option value="Mumbai">
+                <option value="Hyderabad">
+                <option value="Delhi">
+                <option value="Chennai">
+                <option value="Agra">
+              </datalist>
+        </div>
+        <div class="col-md-2">
+            <label>Destination</label>
+            <input type="text" class="form-control" placeholder="Enter Airport" list="browsers4">
+            <datalist id="browsers4">
+                <option value="Mumbai">
+                <option value="Hyderabad">
+                <option value="Delhi">
+                <option value="Chennai">
+                <option value="Agra">
+              </datalist>           
+        </div>
+        <div class="col-md-2">
+            <label>Transit</label>
+            <input type="text" class="form-control" placeholder="Enter Airport" list="browsers3">
+            <datalist id="browsers3">
+                <option value="Mumbai">
+                <option value="Hyderabad">
+                <option value="Delhi">
+                <option value="Chennai">
+                <option value="Agra">
+              </datalist>            
+        </div>
+                 
+        <div class="col-md-2">
+            <label>POS</label>
+            <input type="text" class="form-control" placeholder="Enter Airport" list="browsers2" >
+            <datalist id="browsers2">
+                <option value="Mumbai">
+                <option value="Hyderabad">
+                <option value="Delhi">
+                <option value="Chennai">
+                <option value="Agra">
+              </datalist>
+
+        </div>
+        <div class="col-md-2">
+            <div class="row">
+                <div class="col-md-10">
+                    <label>Product</label>
+                    
+
+                      <div class="form-input-shc">
+                        
+                        <input type="text" class="form-control"  placeholder="Select">
+                        
+                        <span class="iconshc"><i class="btn btn-outline-secondary form-control fa fa-search"  (click)="open(mymodal)" aria-hidden="true"></i></span>
+                      </div>
+                </div>
+                <div class="col-md-2">
+                    
+                    
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-2">
+            <div class="row">
+                <div class="col-md-10">
+                    <label>SHC</label>
+                    
+                    
+                    <div class="form-input-shc">
+                        
+                        <input type="text" class="form-control"  placeholder="Select">
+                        
+                        <span class="iconshc"><i class="btn btn-outline-secondary form-control fa fa-search"  (click)="open(mymodal)" aria-hidden="true"></i></span>
+                      </div>
+                </div>
+                <div class="col-md-2 icon">
+                   
+                    
+                </div>
+            </div>
+
+        </div>
+     </div>
+     <div class="row">
+       <p></p>
+     </div>
+     <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    </div>
+      
+    </div>
+  </ng-template>
+  

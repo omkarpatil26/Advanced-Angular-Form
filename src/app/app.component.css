@@ -1,0 +1,250 @@
+p{
+    color: royalblue;
+}
+body{
+    padding: 10px 10px;  
+}
+
+.mycontainer{
+    border: 1px solid black;
+    padding: 30px;
+    background-color: white;
+
+}
+input{
+    width: 100%;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+  }
+
+  .bottom{
+      padding: 15px;
+  }
+
+  label{
+      padding-top: 10px;
+  }
+  b{
+      font-size: 20px;
+  }
+  span{
+      color: cornflowerblue;
+      font-size: small;
+      padding-top: 0px;
+  }
+  
+
+.error{
+    color:red;
+}
+.firstinput{
+    display: flex;
+    flex-direction: row;
+}
+.value1a{
+    width: 50px;
+}
+.secondinput{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 0px;
+}
+.seconda{
+    width: 40px;
+}
+.secondc{
+    width: 40px;
+}
+h4{
+    font-size: 25px;
+    width: 6px;
+    font-weight: lighter;
+}
+.form-input {
+    margin: 0px auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    position: absolute;
+    left: 145px;
+    top: 5px;
+    font-size: 25px;
+    color: royalblue;
+    height: 90%;
+    align-items: right;
+    justify-content: center;
+    display: flex;
+    flex-direction:row;
+}
+.form-input-shc {
+    margin: 0px auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    padding-right: 20px;
+}
+.fa-search{
+    color: royalblue;
+}
+
+.reset{
+    background-color: white;
+    color: royalblue;
+}
+.submitbtn{
+    width: 80px;
+    height: 35px;
+    margin-top: 0px;
+    border: none;
+    background-color: #5a4bdf;
+    color: white;
+    font-size: 18px;
+    padding: auto;
+    outline: auto;
+    border-spacing:10pt;
+  }
+  .resetbtn{
+    width: 80px;
+    height: 35px;
+    margin-top: 0px;
+    border: none;
+    background-color: white;
+    color: #5a4bdf;
+    font-size: 18px;
+    padding: auto;
+    outline: auto;
+    border-spacing:10pt;
+  }
+  .iconarrow{
+    position: absolute;
+    left: 170px;
+    top: 5px;
+    font-size: 25px;
+    color: royalblue;
+    height: 90%;
+    align-items: right;
+    justify-content: center;
+    display: flex;
+    flex-direction:row;
+    font-weight: lighter;
+
+  }
+
+  .modal-title{
+      font-size: 10px;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+  }
+  .form-input-modal {
+    margin: 0px auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
+.modalicon{
+    color: royalblue;
+    padding-left: 260px;
+}
+
+.tablerow{
+    padding: 40px;
+}
+ 
+  #myTable {
+    
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    align-content: center;
+    padding : 0px;
+    
+  }
+
+  #myTable th{
+    text-align: left;
+    padding: 12px;
+    background-color: royalblue;
+  }
+  
+  #myTable td {
+    text-align: left;
+    padding: 12px;
+  }
+  
+  #myTable tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  #myTable tr.header, #myTable tr:hover {
+    background-color: #f1f1f1;
+  }
+
+    #myTable tr:nth-child(odd) {
+    background-color:snow;
+    }
+    #myTable tr:nth-child(even) {
+    background-color:white;
+    }
+    input.ng-touched.ng-invalid{
+        border: 1px solid red;
+    }
+  
+    .mymodalsecondrow{
+        width: 1000px;
+        height: 900px;
+        padding: 20px;
+    }
+    .modal-dialog {
+        max-width: 600px; /* New width for default modal */
+        max-height: 600px;
+      }
+
+      .modalsecond-title{
+        padding-right: 0px;
+        width: 100%;
+      }
+
+      .mytablee{
+        border: solid 2px black;
+        font-size: 15px;
+        align-self: start;
+        padding: auto;
+        word-spacing: normal;
+        background-color:azure;  
+        text-align: center;
+        
+       
+    }
+    
+    tr{
+        text-align: center;
+        border: solid 2px black;
+    }
+   td{
+       border: solid 2px black;
+   }
+   th{
+    border: solid 2px black;
+}
+    
